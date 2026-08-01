@@ -7,7 +7,7 @@ signal hit_trap
 
 # --------- VARIABLES ---------- #
 
-@export_category("Player Properties") # You can tweak these changes according to your likings
+@export_category("Player Properties")
 @export var move_speed : float = 300
 @export var jump_force : float = 650
 @export var gravity : float = 30
@@ -18,7 +18,7 @@ signal hit_trap
 
 var jump_count : int = 2
 
-@export_category("Toggle Functions") # Double jump feature is disable by default (Can be toggled from inspector)
+@export_category("Toggle Functions")
 @export var double_jump : = false
 
 var is_grounded : bool = false
@@ -28,12 +28,12 @@ var is_attacking = false
 var shoot_cooldown_timer = 0.0
 var can_damage = true
 
-@onready var player_sprite : AnimationPlayer = $student/AnimationPlayer
+# --- เปลี่ยนตัวแปรตรงนี้ ---
+@onready var player_sprite : AnimatedSprite2D = $student/AnimatedSprite2D
 @onready var player_node = $student
 @onready var bullet_marker = $BulletMarker
 @onready var particle_trails = $ParticleTrails
 @onready var death_particles = $DeathParticles
-
 
 
 # --------- BUILT-IN FUNCTIONS ---------- #
@@ -42,8 +42,9 @@ func _ready() -> void:
 	if GameManager.save_player_position.x != 0:
 		global_position =  GameManager.save_player_position
 		GameManager.save_player_position = Vector2.ZERO
+	# animation_finished ของ AnimatedSprite2D ไม่ส่งชื่อ animation มาด้วย
 	player_sprite.animation_finished.connect(_on_animation_finished)
-	
+
 func _physics_process(_delta):
 	is_grounded = is_on_floor()
 	movement()
@@ -54,21 +55,18 @@ func _process(_delta):
 	handle_shooting()
 	if shoot_cooldown_timer > 0:
 		shoot_cooldown_timer -= _delta
-	
+
 # --------- CUSTOM FUNCTIONS ---------- #
 
-# <-- Player Movement Code -->
 func movement():
-	# Gravity
 	if !is_on_floor():
 		velocity.y += gravity
 	elif is_on_floor():
 		jump_count = max_jump_count
 		velocity.x = 0
-	
+
 	handle_jumping()
-	
-	# Move Player
+
 	if movement_enabled:
 		if Input.is_action_pressed("Left"):
 			velocity.x = -move_speed
@@ -78,7 +76,6 @@ func movement():
 		hit_trap.emit()
 	move_and_slide()
 
-# Handles jumping functionality (double jump or single jump, can be toggled from inspector)
 func handle_jumping():
 	if Input.is_action_just_pressed("Jump") and movement_enabled:
 		if is_on_floor() and !double_jump:
@@ -87,27 +84,30 @@ func handle_jumping():
 			jump()
 			jump_count -= 1
 
-# Player jump
 func jump():
 	jump_tween()
 	AudioManager.jump_sfx.play()
 	velocity.y = -jump_force
 
-# Handle Player Animations
+# --- ส่วนที่เปลี่ยนมากที่สุด: การเล่นแอนิเมชัน ---
 func player_animations():
 	particle_trails.emitting = false
 	if is_attacking:
 		return
-	
+
+	var target_anim := ""
 	if is_on_floor():
 		if abs(velocity.x) > 0:
 			particle_trails.emitting = true
-			player_sprite.current_animation = "Walk"
+			target_anim = "Walk"
 		else:
-			player_sprite.current_animation = "Idle"
+			target_anim = "Idle"
 	else:
-		player_sprite.current_animation = "Jump"
+		target_anim = "Jump"
 
+	# ป้องกันไม่ให้ .play() รีสตาร์ตแอนิเมชันซ้ำทุกเฟรม
+	if player_sprite.animation != target_anim:
+		player_sprite.play(target_anim)
 
 # Flip player sprite based on X velocity
 func flip_player():
@@ -116,7 +116,7 @@ func flip_player():
 	elif velocity.x > 0:
 		player_node.scale.x = 1
 
-# Tween Animations
+# Tween Animations (ไม่ต้องแก้ ใช้ scale/position ของ node แม่)
 func death_tween():
 	AudioManager.death_sfx.play()
 	death_particles.emitting = true
@@ -151,9 +151,8 @@ func damage_tween():
 		tween.tween_property(player_node , "modulate", Color.WHITE, 0.1)
 	await tween.finished
 	can_damage = true
-# --------- SIGNALS ---------- #
 
-# Reset the player's position to the current level spawn point if collided with any trap
+# --------- SIGNALS ---------- #
 func _on_collision_body_entered(body):
 	if body.is_in_group("Traps"):
 		hit_trap.emit()
@@ -186,7 +185,7 @@ func shoot():
 	bullet.shoot(dir, 600, bullet_lifetime)
 	shoot_cooldown_timer = shoot_cooldown_time
 
-func _on_animation_finished(anim_name: String) -> void:
-	if anim_name == "Attack":
+# --- เปลี่ยนตรงนี้: ไม่มี parameter anim_name แล้ว ---
+func _on_animation_finished() -> void:
+	if player_sprite.animation == "Attack":
 		is_attacking = false
-	

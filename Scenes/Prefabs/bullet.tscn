@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dsqhpet4dfpn8" path="res://Assets/Spritesheet/bullet.png" id="1_pkqe3"]
 [ext_resource type="Script" uid="uid://lfkiq2j22hff" path="res://Scenes/Prefabs/bullet.gd" id="1_yovq8"]
+[ext_resource type="Texture2D" uid="uid://d547x0gwspy6" path="res://Assets/Spritesheet/80413844ffcffd756665b97aaad9d466-removebg-preview.png" id="3_cjoyj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pkqe3"]
 friction = 0.5
@@ -24,3 +25,7 @@ shape = SubResource("CircleShape2D_mqoqv")
 position = Vector2(-0.1641778, -0.3124994)
 scale = Vector2(0.24490353, 0.2572188)
 texture = ExtResource("1_pkqe3")
+
+[node name="80413844Ffcffd756665b97Aaad9d466RemovebgPreview" type="Sprite2D" parent="." unique_id=2144801794]
+scale = Vector2(0.0715, 0.076249994)
+texture = ExtResource("3_cjoyj")
