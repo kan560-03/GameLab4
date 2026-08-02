@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://dekkdb3a0eifd"]
 
 [ext_resource type="PackedScene" uid="uid://bjntpxb1c8jxn" path="res://Scenes/Levels/base_level.tscn" id="1_l0dwn"]
-[ext_resource type="PackedScene" uid="uid://cppg5yoxwv0dy" path="res://Scenes/Levels/level_02.tscn" id="2_wf6s8"]
+[ext_resource type="PackedScene" uid="uid://cppg5yoxwv0dy" path="res://Scenes/Levels/Level_02.tscn" id="2_wf6s8"]
 [ext_resource type="PackedScene" uid="uid://cb8e62red7kc0" path="res://Scenes/Prefabs/trap_1.tscn" id="3_bmcj7"]
-[ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/coin.tscn" id="3_dbq10"]
+[ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="3_dbq10"]
 [ext_resource type="TileSet" uid="uid://bvk6vx5i1riqd" path="res://Scenes/Prefabs/ground_tile_set.tres" id="3_qelns"]
 [ext_resource type="PackedScene" uid="uid://ek7hxkqp2wff" path="res://Scenes/Actors/monster_slim.tscn" id="5_mb1if"]
 [ext_resource type="PackedScene" uid="uid://bp4l1nlnh8oq1" path="res://Scenes/Prefabs/trap_2.tscn" id="5_qelns"]
@@ -70,6 +70,8 @@ speed = 30.0
 position = Vector2(328, 423)
 speed = 50.0
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemies/Enemy3" index="5" unique_id=407760486]
+
 [node name="Enemy5" parent="Enemies" parent_id_path=PackedInt32Array(1580630701) index="3" unique_id=517355601 instance=ExtResource("5_mb1if")]
 position = Vector2(585, 448)
 speed = 20.0
@@ -92,7 +94,7 @@ offset_right = 285.0
 offset_bottom = 234.0
 theme = ExtResource("6_taws2")
 text = "นี่เป็นด่านตัวอย่าง
-A D เพื่อเดิน
+<--  --> เพื่อเดิน
 Space กระโดด
 X  ยิงบอลไฟ กำจัด เห็ด และ สไลม์"
 

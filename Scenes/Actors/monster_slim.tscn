@@ -2,70 +2,53 @@
 
 [ext_resource type="PackedScene" uid="uid://d27bcsmx82vfa" path="res://Scenes/Actors/enemy.tscn" id="1_b7voo"]
 [ext_resource type="Script" uid="uid://bx5lotsye1r4s" path="res://Scenes/Actors/monster_small.gd" id="2_a8voy"]
-[ext_resource type="Texture2D" uid="uid://dv87lp4aq8wj3" path="res://Assets/Spritesheet/Slime1_Walk_without_shadow.png" id="4_l5hy0"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ynp2i"]
-atlas = ExtResource("4_l5hy0")
-region = Rect2(0, 127, 64, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wil0m"]
-atlas = ExtResource("4_l5hy0")
-region = Rect2(64, 127, 64, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_225wo"]
-atlas = ExtResource("4_l5hy0")
-region = Rect2(128, 127, 64, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q0esp"]
-atlas = ExtResource("4_l5hy0")
-region = Rect2(192, 127, 64, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3umna"]
-atlas = ExtResource("4_l5hy0")
-region = Rect2(256, 127, 64, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3fnnt"]
-atlas = ExtResource("4_l5hy0")
-region = Rect2(320, 127, 64, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_40jp4"]
-atlas = ExtResource("4_l5hy0")
-region = Rect2(384, 127, 64, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8m1sm"]
-atlas = ExtResource("4_l5hy0")
-region = Rect2(448, 127, 64, 42)
+[ext_resource type="Texture2D" uid="uid://dmbvx0mth6jk0" path="res://Assets/Spritesheet/2_TROLL/Troll_02_1_WALK_000.png" id="3_8glpq"]
+[ext_resource type="Texture2D" uid="uid://bd8gfdk4je7er" path="res://Assets/Spritesheet/2_TROLL/Troll_02_1_WALK_001.png" id="4_caomq"]
+[ext_resource type="Texture2D" uid="uid://cnt0lg3r7fmeg" path="res://Assets/Spritesheet/2_TROLL/Troll_02_1_WALK_002.png" id="5_i4d51"]
+[ext_resource type="Texture2D" uid="uid://7rq5iqyrt3ba" path="res://Assets/Spritesheet/2_TROLL/Troll_02_1_WALK_003.png" id="6_4kvek"]
+[ext_resource type="Texture2D" uid="uid://fbxcbo30wuha" path="res://Assets/Spritesheet/2_TROLL/Troll_02_1_WALK_004.png" id="7_l7t21"]
+[ext_resource type="Texture2D" uid="uid://br3c8npdxqf6a" path="res://Assets/Spritesheet/2_TROLL/Troll_02_1_WALK_005.png" id="8_fx8d6"]
+[ext_resource type="Texture2D" uid="uid://d0ikhxwu3q2y0" path="res://Assets/Spritesheet/2_TROLL/Troll_02_1_WALK_006.png" id="9_06ehe"]
+[ext_resource type="Texture2D" uid="uid://bfxtf2uj0wem7" path="res://Assets/Spritesheet/2_TROLL/Troll_02_1_WALK_007.png" id="10_d55ix"]
+[ext_resource type="Texture2D" uid="uid://d03kfv45p0e14" path="res://Assets/Spritesheet/2_TROLL/Troll_02_1_WALK_008.png" id="11_jatlv"]
+[ext_resource type="Texture2D" uid="uid://0q7rnx471rsy" path="res://Assets/Spritesheet/2_TROLL/Troll_02_1_WALK_009.png" id="12_bqauc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l7ctk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ynp2i")
+"texture": ExtResource("3_8glpq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wil0m")
+"texture": ExtResource("4_caomq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_225wo")
+"texture": ExtResource("5_i4d51")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q0esp")
+"texture": ExtResource("6_4kvek")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3umna")
+"texture": ExtResource("7_l7t21")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3fnnt")
+"texture": ExtResource("8_fx8d6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_40jp4")
+"texture": ExtResource("9_06ehe")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8m1sm")
+"texture": ExtResource("10_d55ix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jatlv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_bqauc")
 }],
 "loop": 1,
-"name": &"slim",
-"speed": 10.0
+"name": &"troll",
+"speed": 5.0
 }]
 
 [node name="Enemy" unique_id=600502477 instance=ExtResource("1_b7voo")]
@@ -73,20 +56,20 @@ script = ExtResource("2_a8voy")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=587424215]
 position = Vector2(0, -17)
-scale = Vector2(1, 0.8)
+scale = Vector2(1.25, 1)
 
 [node name="CollisionShape2D2" parent="HitArea" parent_id_path=PackedInt32Array(1115411835) index="0" unique_id=2008793250]
 position = Vector2(0, -17)
-scale = Vector2(1, 0.8)
+scale = Vector2(1.25, 1)
 
 [node name="Sprite" parent="." index="3" unique_id=1445111960]
 position = Vector2(0, -1)
 
 [node name="AnimateSprite" type="AnimatedSprite2D" parent="Sprite" index="0" unique_id=87960724]
-position = Vector2(0, -37)
-scale = Vector2(2, 2)
+position = Vector2(-1, -55)
+scale = Vector2(-0.16215643, 0.17746346)
 sprite_frames = SubResource("SpriteFrames_l7ctk")
-animation = &"slim"
+animation = &"troll"
 
 [node name="Ray" parent="Sprite" index="1" unique_id=1415425330]
 visible = false
