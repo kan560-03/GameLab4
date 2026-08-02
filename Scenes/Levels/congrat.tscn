@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://dq14hgrjxp5uc"]
+
+[ext_resource type="Texture2D" uid="uid://c5wisggkxuq3l" path="res://Scenes/Levels/large.jpg" id="1_weisi"]
+[ext_resource type="Texture2D" uid="uid://1ay25i0wdihg" path="res://Assets/Icons/cpkku_dark.png" id="1_ytp7k"]
+[ext_resource type="Theme" uid="uid://d3eng5cvycmjf" path="res://Scenes/Prefabs/theme.tres" id="2_51s5g"]
+[ext_resource type="PackedScene" uid="uid://puc4l62gx6et" path="res://Scenes/Prefabs/button_exit.tscn" id="3_weisi"]
+[ext_resource type="Texture2D" uid="uid://c0a2nhe8t01d" path="res://Scenes/Levels/images.jpg" id="5_h1cxy"]
+
+[node name="Node2D" type="Node2D" unique_id=264957255]
+
+[node name="Control" type="Control" parent="." unique_id=423201679]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1154.0
+offset_bottom = 650.0
+
+[node name="Large" type="Sprite2D" parent="Control" unique_id=825941785]
+position = Vector2(576, 326.25)
+scale = Vector2(1.4412501, 0.80687505)
+texture = ExtResource("1_weisi")
+
+[node name="CpkkuDark" type="Sprite2D" parent="Control" unique_id=813724852]
+position = Vector2(293, 68)
+texture = ExtResource("1_ytp7k")
+
+[node name="Title" type="Label" parent="Control" unique_id=1640205557]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -515.0
+offset_top = 191.0
+offset_right = -214.0
+offset_bottom = 223.0
+grow_horizontal = 2
+theme = ExtResource("2_51s5g")
+theme_override_colors/font_color = Color(0.88235295, 0.18039216, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "Development Team"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="Label" parent="Control" unique_id=1645896659]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -167.0
+offset_top = 177.0
+offset_right = 207.0
+offset_bottom = 209.0
+grow_horizontal = 2
+theme = ExtResource("2_51s5g")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btnExit" parent="Control" unique_id=1633606001 instance=ExtResource("3_weisi")]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 0.0
+offset_right = 159.0
+offset_bottom = 54.0
+
+[node name="Title3" type="Label" parent="Control" unique_id=1657901293]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -518.0
+offset_top = 125.0
+offset_right = -204.0
+offset_bottom = 166.0
+grow_horizontal = 2
+theme = ExtResource("2_51s5g")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "ยินดีด้วยคุณชนะเกมนี้แล้ว"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title4" type="Label" parent="Control" unique_id=2127691335]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -518.0
+offset_top = 251.0
+offset_right = -138.0
+offset_bottom = 298.0
+grow_horizontal = 2
+theme = ExtResource("2_51s5g")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+text = "1. นาย กานต์ อุดมศรี รหัส 673380610-7
+"
+vertical_alignment = 1
+
+[node name="Images" type="Sprite2D" parent="." unique_id=753759001]
+position = Vector2(980, 163)
+scale = Vector2(0.48425198, 0.5020964)
+texture = ExtResource("5_h1cxy")
