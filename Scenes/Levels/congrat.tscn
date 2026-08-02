@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://dq14hgrjxp5uc"]
 
 [ext_resource type="Texture2D" uid="uid://c5wisggkxuq3l" path="res://Scenes/Levels/large.jpg" id="1_weisi"]
+[ext_resource type="Script" uid="uid://cgdtkknhgivob" path="res://Scenes/Levels/congrat.gd" id="1_ynq6i"]
 [ext_resource type="Texture2D" uid="uid://1ay25i0wdihg" path="res://Assets/Icons/cpkku_dark.png" id="1_ytp7k"]
 [ext_resource type="Theme" uid="uid://d3eng5cvycmjf" path="res://Scenes/Prefabs/theme.tres" id="2_51s5g"]
 [ext_resource type="PackedScene" uid="uid://puc4l62gx6et" path="res://Scenes/Prefabs/button_exit.tscn" id="3_weisi"]
 [ext_resource type="Texture2D" uid="uid://c0a2nhe8t01d" path="res://Scenes/Levels/images.jpg" id="5_h1cxy"]
+[ext_resource type="AudioStream" uid="uid://brry7j6ujsru1" path="res://untitled_647.mp3" id="6_h1cxy"]
 
 [node name="Node2D" type="Node2D" unique_id=264957255]
+script = ExtResource("1_ynq6i")
 
 [node name="Control" type="Control" parent="." unique_id=423201679]
 layout_mode = 3
@@ -15,8 +18,8 @@ offset_right = 1154.0
 offset_bottom = 650.0
 
 [node name="Large" type="Sprite2D" parent="Control" unique_id=825941785]
-position = Vector2(576, 326.25)
-scale = Vector2(1.4412501, 0.80687505)
+position = Vector2(578, 344.62497)
+scale = Vector2(1.4412501, 0.86093754)
 texture = ExtResource("1_weisi")
 
 [node name="CpkkuDark" type="Sprite2D" parent="Control" unique_id=813724852]
@@ -103,3 +106,11 @@ vertical_alignment = 1
 position = Vector2(980, 163)
 scale = Vector2(0.48425198, 0.5020964)
 texture = ExtResource("5_h1cxy")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=537189351]
+stream = ExtResource("6_h1cxy")
+volume_db = 24.0
+autoplay = true
+bus = &"music"
+
+[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
