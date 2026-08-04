@@ -10,6 +10,7 @@ This starter kit provides all the essential mechanics needed to build a complete
 
 <img src="docs/png1.png" style="width:300px;" />
 <img src="docs/png2.png" style="width:300px;" />
+<img src="docs/qr.png" style="width:300px;" />
 
 - [Game Preview](https://drive.google.com/file/d/1j1KXAdPy-FG4EzkBPvusVnwF47lYcVc2/view?usp=sharing)
 
